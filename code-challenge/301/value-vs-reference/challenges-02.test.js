@@ -9,8 +9,6 @@ Write a function that appends ' The end.' to a string, and returns the modified 
 ------------------------------------------------------------------------------------------------ */
 
 const appendTheEnd = (str) => {
-//Everyway I tried using any Jquery it was coming up as undefined, its like jest does have the Jquery cdn or doesnt know to load it or something, could find a fix so i got the pass by vanilla js...
-//$("str").append('<p> The end.</p>');
   str = str + ' The end.';
   return str;
 }
@@ -49,8 +47,8 @@ console.log(a) prints { fullName: 'Octavia Estelle Butler', yearBorn: 1947 }
 ------------------------------------------------------------------------------------------------ */
 
 const addBirthYearProperty = (obj, year) => {
-  //Yeah idk what to do, cause im trying to still learn this and im trying different things but I cant get past the error "$ is not defined" so I cant figure out what is wrong with the actual code....and i cant cheat with vanilla js with this one.
-  $('obj').attr('yearBorn: ' + year);
+  obj.yearBorn = year;
+
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -67,7 +65,9 @@ console.log(people[1].isAuthor) prints true
 ------------------------------------------------------------------------------------------------ */
 
 const setStatusAsAuthor = (people) => {
-  // Solution code here...
+  people.forEach( (value, idx, arr) => {
+    people[idx].isAuthor = true;
+  })
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -86,8 +86,11 @@ console.log(a) prints [1, 2, 3, 4]
 ------------------------------------------------------------------------------------------------ */
 
 const append = (arr1, arr2) => {
-  // Solution code here...
-
+  arr2.forEach( (value, idx, arr) => {
+    let one = arr1
+    let two = arr2[idx];
+    one.push(two);  
+  })
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -129,7 +132,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should add a property to every object in an array', () => {
     const a = [{ fullName: 'Octavia Butler' }, { fullName: 'Ray Bradbury' }, { fullName: 'Kurt Vonnegut' }];
     setStatusAsAuthor(a);
@@ -140,7 +143,7 @@ xdescribe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should append the second array to the first', () => {
     const a = [1, 2, 3, 4];
     const b = [5, 6, 7, 8];
