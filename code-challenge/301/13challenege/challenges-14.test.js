@@ -188,41 +188,25 @@ const detectTicTacToeWin = (board) => {
                 if(idx === 0) {
                     if(board[index][idx] === board[index][(idx +1)] && board[index][idx] === board[index][(idx +2)]) {
                         winOrLose = true;
+                        return;
                     }
-                }
-                if(idx === 1) {
-                    if(board[index][idx] === board[index][(idx -1)] && board[index][idx] === board[index][(idx +1)]) {
-                        winOrLose = true;
-                    }
-                }
-                if(idx === 2) {
-                    if(board[index][idx] === board[index][(idx -1)] && board[index][idx] === board[index][(idx -2)]) {
-                        winOrLose = true;
-                    }
-                }
-                if(index === 3) {
-                    if(board[index][idx] === board[(index -1)][idx] && board[index][idx] === board[(index -2)][idx]) {
-                        winOrLose = true;
-                    }
-                }
-                if(index === 1) {
-                    if(board[index][idx] === board[(index -1)][idx] && board[index][idx] === board[(index +1)][idx]) {
-                        winOrLose = true;
-                    }
-                }
-                if(index === 0) {
+                  }
+                  if(index === 0) {
                     if(board[index][idx] === board[(index +1)][idx] && board[index][idx] === board[(index +2)][idx]) {
                         winOrLose = true;
+                        return;
                     }
-                }
+                  }
                 if(index === 0 && idx === 0) {
                     if(board[index][idx] === board[(index +1)][(idx +1)] && board[index][idx] === board[(index +2)][(idx +2)]) {
                         winOrLose = true;
+                        return;
                     }
                 }
                 if(index === 2 && idx === 0) {
                     if(board[index][idx] === board[(index -1)][(idx +1)] && board[index][idx] === board[(index -2)][(idx +2)]) {
                         winOrLose = true;
+                        return;
                     }
                 }
             }
